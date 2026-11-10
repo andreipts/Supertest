@@ -1,0 +1,28 @@
+name: Testes automatizados de API
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      # npm ci exige o package-lock.json commitado e instala exatamente as versões fixadas.
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Executar testes
+        run: npm test

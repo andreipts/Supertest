@@ -1,0 +1,16 @@
+{
+  "name": "supertest-api-grupo5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trabalho avaliativo de automação de testes de API com Supertest, Jest e DummyJSON",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:verbose": "jest --runInBand --verbose",
+    "test:coverage": "jest --runInBand --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.1"
+  },
+  "engines": {"node": ">=20"}
+}
